@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>{{ page_title }}</title>
+    <title>{{ title }}</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -58,7 +58,7 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
                             <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
-                            <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
+                            <li><a href=" {% url 'company:contact' %} "><i class="fas fa-headset"></i> Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {% url 'company:about' %} ">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
@@ -135,8 +135,8 @@
                                 <li><a href="wishlist.html">Wishlist</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'company:gallery' %}">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {% url 'company:contact' %} ">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -342,16 +342,16 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
-                            <h4>About Fun Flower</h4>
-                            <p>Fun Flower, your delightful online destination for all things floral! At Fun Flower, we offer a vibrant and diverse selection of fresh flowers, stunning bouquets, and unique floral arrangements to brighten up any occasion.</p>
-							<p>Experience the magic of flowers with Fun Flower – where every petal tells a story!</p>
+                            <h4>About Fun Flowers</h4>
+                            <p>Fun Flowers - your delightful online destination for all things floral! At Fun Flowers, we offer a vibrant and diverse selection of fresh flowers, stunning bouquets, and unique floral arrangements to brighten up any occasion.</p>
+							<p>Experience the magic of flowers with Fun Flowers – where every petal tells a story!</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link">
                             <h4>Information</h4>
                             <ul>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href=" {% url 'company:about' %}">About Us</a></li>
                                 <li><a href="#">Customer Service</a></li>
                                 <li><a href="#">Our Sitemap</a></li>
                                 <li><a href="#">Terms &amp; Conditions</a></li>

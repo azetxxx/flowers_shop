@@ -7,7 +7,7 @@ from products.models import Product, Color, Flower, Holiday, Season
 
 def index(request):
     context = {
-        'page_title': 'Start: 🌼 Fun Flowers',
+        'title': 'Start 🌼 Fun Flowers',
     }
     return render(request, 'products/index.html', context)
 
