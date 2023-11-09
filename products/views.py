@@ -14,7 +14,7 @@ def index(request):
 
 def shop(request):
     context = {
-        'page_title': 'Shop: 🌼 Fun Flowers',
+        'title': 'Shop: 🌼 Fun Flowers',
         'products': Product.objects.all(),
         'colors': Color.objects.all(),
         'flowers': Flower.objects.all(),
