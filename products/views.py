@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from products.models import Product, Color, Flowers, Holiday, Season
+from products.models import Product, Color, Flower, Holiday, Season
 
 # Create your views here.
 
@@ -17,7 +17,7 @@ def shop(request):
         'page_title': 'Shop: 🌼 Fun Flowers',
         'products': Product.objects.all(),
         'colors': Color.objects.all(),
-        'flowers': Flowers.objects.all(),
+        'flowers': Flower.objects.all(),
         'holidays': Holiday.objects.all(),
         'seasons': Season.objects.all(),
     }

@@ -211,6 +211,17 @@
 	$(".brand-box").niceScroll({
 		cursorcolor: "#9b9b9c",
 	});
+
+
+	/* ..............................................
+	   DropDown Menu Redirect
+	   ................................................. */
+
+    $(function() {
+      $('#login-select').change(function() {
+        window.location.href = $(this).val();
+      });
+    });
 	
 	
 }(jQuery));

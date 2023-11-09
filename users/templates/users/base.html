@@ -35,6 +35,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="{% static 'js/custom.js' %}"></script>
 
 </head>
 
@@ -69,6 +70,7 @@
                         <option value="{% url 'users:login' %}">Sign In</option>
                       </select>
                     </div>
+
                     <div class="text-slid-box">
                         <div id="offer-box" class="carouselTicker">
                             <ul class="offer-box">
@@ -209,94 +211,6 @@
         {% block content %} {% endblock %}
     <!-- End Page Content -->
 
-    <!-- Start Instagram Feed  -->
-    <div class="instagram-box">
-        <div class="main-instagram owl-carousel owl-theme">
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-01.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-02.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-03.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-04.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-05.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-06.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-07.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-08.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-09.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="{% static 'images/instagram-img-05.jpg' %}" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Instagram Feed  -->
-
-
     <!-- Start Footer  -->
     <footer>
         <div class="footer-main">
@@ -306,7 +220,7 @@
 						<div class="footer-top-box">
 							<h3>Business Time</h3>
 							<ul class="list-time">
-								<li>Monday - Friday:   from 08:00 to 17:00</li> <li>Saturday:   from 10:00 to 20:00</li> <li>Sunday:   <span>Closed</span></li>
+								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
 							</ul>
 						</div>
 					</div>
@@ -325,7 +239,7 @@
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
 							<h3>Social Media</h3>
-                                <p>Reach out to us in social media.</p>
+							<p>Reach out to us in social media.</p>
 							<ul>
                                 <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -342,9 +256,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
-                            <h4>About Fun Flower</h4>
-                            <p>Fun Flower, your delightful online destination for all things floral! At Fun Flower, we offer a vibrant and diverse selection of fresh flowers, stunning bouquets, and unique floral arrangements to brighten up any occasion.</p>
-							<p>Experience the magic of flowers with Fun Flower – where every petal tells a story!</p>
+                            <h4>About Freshshop</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12">
@@ -368,10 +282,10 @@
                                     <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+49-89-88705770">+49-89-88705770</a></p>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:hello@fun-flower.com">hello@fun-flower.com</a></p>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
                                 </li>
                             </ul>
                         </div>
@@ -384,7 +298,8 @@
 
     <!-- Start copyright  -->
     <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2023 Fun Flower</p>
+        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
+            <a href="https://html.design/">html design</a></p>
     </div>
     <!-- End copyright  -->
 
@@ -407,12 +322,14 @@
     <script src="{% static 'js/contact-form-script.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
 
-    <script>
-        const select = document.getElementById('login-select');
-        select.addEventListener('change', () => {
-            window.location.href = select.value;
-        });
-    </script>
+<!--    <script>-->
+<!--        const select = document.getElementById('login-select');-->
+<!--        select.addEventListener('change', () => {-->
+<!--            window.location.href = select.value;-->
+<!--        });-->
+<!--    </script>-->
+
+
 </body>
 
 </html>

@@ -1,0 +1,1 @@
+[{"model": "products.season", "pk": 1, "fields": {"name": "summer"}}, {"model": "products.season", "pk": 2, "fields": {"name": "spring"}}, {"model": "products.season", "pk": 3, "fields": {"name": "winter"}}, {"model": "products.season", "pk": 4, "fields": {"name": "autumn"}}]
