@@ -1,6 +1,6 @@
 (function($) {
     "use strict";
-	
+
 	/* ..............................................
 	   Loader 
 	   ................................................. */
@@ -10,6 +10,25 @@
 		$('body').delay(450).css({
 			'overflow': 'visible'
 		});
+
+
+
+	/* ..............................................
+	   DropDown Menu Redirect
+	   ................................................. */
+
+    $(function() {
+      $('#login-select').on('change', function() {
+      console.log("change")
+        window.location.href = $(this).val();
+      });
+    });
+
+//    $(document).on('change', 'select', ()=>console.log('fired'));
+
+
+
+
 	});
 
 	/* ..............................................
@@ -213,15 +232,6 @@
 	});
 
 
-	/* ..............................................
-	   DropDown Menu Redirect
-	   ................................................. */
 
-    $(function() {
-      $('#login-select').change(function() {
-        window.location.href = $(this).val();
-      });
-    });
-	
-	
+
 }(jQuery));

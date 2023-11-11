@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 
 from users.models import User
 
@@ -70,7 +70,7 @@ class UserRegistrationForm(UserCreationForm):
     }))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Password Again',
+        'placeholder': 'Confirm Password',
         'type': 'password',
         'id': 'password2',
         'name': 'name',
@@ -80,3 +80,24 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+
+
+class UserProfileForm(UserChangeForm):
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+    }))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+    }))
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'readonly': True
+    }))
+    email = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'readonly': True
+    }))
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'email')

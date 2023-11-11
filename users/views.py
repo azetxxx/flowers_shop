@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.urls import reverse
 
 from users.models import User
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 
 
 def login(request):
@@ -32,6 +32,7 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Success! Your signup was successful!')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm
@@ -41,3 +42,40 @@ def registration(request):
         'form': form
     }
     return render(request, 'users/registration.html', context)
+
+
+def account(request):
+    context = {
+        'title': 'My Account 🌼 Fun Flowers',
+    }
+    return render(request, 'users/account.html', context)
+
+
+def login_settings(request):
+    if request.method == 'POST':
+        form = UserProfileForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:login-settings'))
+        else:
+            print(form.errors)
+    else:
+        form = UserProfileForm(instance=request.user)
+
+    context = {
+        'form': form,
+        'title': 'Login Settings 🌼 Fun Flowers',
+    }
+    return render(request, 'users/login-settings.html', context)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
+
+def wishlist(request):
+    context = {
+        'title': 'Wishlist 🌼 Fun Flowers',
+    }
+    return render(request, 'users/wishlist.html', context)

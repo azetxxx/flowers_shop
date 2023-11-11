@@ -22,3 +22,24 @@ def shop(request):
         'seasons': Season.objects.all(),
     }
     return render(request, 'products/shop.html', context)
+
+
+def details(request):
+    context = {
+        'title': 'Shop: 🌼 Fun Flowers',
+    }
+    return render(request, 'products/details.html', context)
+
+
+def cart(request):
+    context = {
+        'title': 'Cart 🌼 Fun Flowers',
+    }
+    return render(request, 'products/cart.html', context)
+
+
+def checkout(request):
+    context = {
+        'title': 'Checkout 🌼 Fun Flowers',
+    }
+    return render(request, 'products/checkout.html', context)
