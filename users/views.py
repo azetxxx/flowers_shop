@@ -1,4 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+
 from django.contrib import auth, messages
 from django.urls import reverse
 
@@ -44,6 +46,7 @@ def registration(request):
     return render(request, 'users/registration.html', context)
 
 
+@login_required
 def account(request):
     context = {
         'title': 'My Account 🌼 Fun Flowers',
@@ -74,6 +77,7 @@ def logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+@login_required
 def wishlist(request):
     context = {
         'title': 'Wishlist 🌼 Fun Flowers',
