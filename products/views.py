@@ -26,9 +26,10 @@ class ProductsListView(ListView):
         return queryset.filter(category_id=category_id) if category_id else queryset.all()
 
     def get_context_data(self, **kwargs):
-        context = super(ProductsListView, self).get_context_data()
+        context = super(ProductsListView, self).get_context_data(**kwargs)
         context['title'] = 'Shop: 🌼 Fun Flowers'
         context['categories'] = ProductCategory.objects.all()
+        context['current_category_id'] = self.kwargs.get('category_id')
         return context
 
 
