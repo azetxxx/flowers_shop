@@ -1,10 +1,9 @@
-from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import HttpResponseRedirect, render
 from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
 
-from products.models import ProductCategory, Product, ShoppingCart
-from django.core.paginator import Paginator
+from products.models import Product, ProductCategory, ShoppingCart
 
 
 class IndexView(TemplateView):
@@ -16,20 +15,21 @@ class IndexView(TemplateView):
         return context
 
 
-def shop(request, category_id=None, page_number=1):
+class ProductsListView(ListView):
+    model = Product
+    template_name = 'products/shop.html'
+    paginate_by = 6
 
-    product_items = Product.objects.filter(category_id=category_id) if category_id else Product.objects.all()
+    def get_queryset(self, **kwargs):
+        queryset = super(ProductsListView, self).get_queryset()
+        category_id = self.kwargs.get('category_id')
+        return queryset.filter(category_id=category_id) if category_id else queryset.all()
 
-    items_per_page = 6
-    paginator = Paginator(product_items, items_per_page)
-    products_on_page = paginator.page(page_number)
-
-    context = {
-        'title': 'Shop: 🌼 Fun Flowers',
-        'categories': ProductCategory.objects.all(),
-        'products': products_on_page,
-    }
-    return render(request, 'products/shop.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(ProductsListView, self).get_context_data()
+        context['title'] = 'Shop: 🌼 Fun Flowers'
+        context['categories'] = ProductCategory.objects.all()
+        return context
 
 
 def details(request):
@@ -39,13 +39,10 @@ def details(request):
     return render(request, 'products/details.html', context)
 
 
-
 @login_required
 def cart(request):
-
     cart_subtotal = None
     cart_total = None
-
     context = {
         'title': 'Cart 🌼 Fun Flowers',
         'shopping_cart': ShoppingCart.objects.filter(user=request.user)

@@ -73,7 +73,10 @@ class ShoppingCart(models.Model):
     objects = ShoppingCartQuerySet.as_manager()
 
     def __str__(self):
-        return f'Cart for {self.user.username} | Product (ID {self.product.id}): {self.product.name} | Qty: {self.quantity}'
+        return f'\
+            Cart for {self.user.username} | \
+            Product (ID {self.product.id}): {self.product.name} | \
+            Qty: {self.quantity}'
 
     def product_total(self):
         return self.product.price * self.quantity
@@ -89,4 +92,6 @@ class ShoppingCart(models.Model):
 #     user_email = models.EmailField(blank=True, null=True)
 
 #     def __str__(self):
-#         return f'Discount code: {self.code} | Value: {self.percent} % or {self.amount} $ | For Email: {self.user_email}'
+#         return f'Discount code: {self.code} | \
+#               Value: {self.percent} % or {self.amount} $ | \
+#               For Email: {self.user_email}'

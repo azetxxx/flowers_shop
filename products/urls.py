@@ -1,16 +1,16 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
-from products.views import shop, details, cart, checkout, add_item_to_cart, remove_item_from_cart
-from django.conf.urls.static import static
-
-from django.conf import settings
+from products.views import (ProductsListView, add_item_to_cart, cart, checkout,
+                            details, remove_item_from_cart)
 
 app_name = 'products'
 
 urlpatterns = [
-    path('', shop, name='index'),
-    path('category/<int:category_id>/', shop, name='category'),
-    path('page/<int:page_number>/', shop, name='paginator'),
+    path('', ProductsListView.as_view(), name='index'),
+    path('category/<int:category_id>/', ProductsListView.as_view(), name='category'),
+    path('page/<int:page>/', ProductsListView.as_view(), name='paginator'),
     path('cart/', cart, name='cart'),
     path('details/', details, name='details'),
     path('cart/checkout/', checkout, name='checkout'),

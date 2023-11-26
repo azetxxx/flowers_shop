@@ -1,9 +1,9 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
-from users.views import registration, login, account, login_settings, logout, wishlist
-from django.conf.urls.static import static
-
-from django.conf import settings
+from users.views import (account, login, login_settings, logout, registration,
+                         wishlist)
 
 app_name = 'users'
 

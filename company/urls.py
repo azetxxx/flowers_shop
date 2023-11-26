@@ -1,9 +1,8 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from company.views import AboutView, ContactView, GalleryView
-from django.conf.urls.static import static
-
-from django.conf import settings
 
 app_name = 'company'
 
