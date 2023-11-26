@@ -1,24 +1,30 @@
 from django.shortcuts import render
 
-# Create your views here.
+from django.views.generic.base import TemplateView
 
 
-def about(request):
-    context = {
-        'title': 'About 🌼 Fun Flowers'
-    }
-    return render(request, 'company/about.html', context)
+class AboutView(TemplateView):
+    template_name = 'company/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data()
+        context['title'] = 'About 🌼 Fun Flowers'
+        return context
 
 
-def contact(request):
-    context = {
-        'title': 'Contact 🌼 Fun Flowers',
-    }
-    return render(request, 'company/contact.html', context)
+class ContactView(TemplateView):
+    template_name = 'company/contact.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ContactView, self).get_context_data()
+        context['title'] = 'Contact 🌼 Fun Flowers'
+        return context
 
 
-def gallery(request):
-    context = {
-        'title': 'Gallery 🌼 Fun Flowers',
-    }
-    return render(request, 'company/gallery.html', context)
+class GalleryView(TemplateView):
+    template_name = 'company/gallery.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(GalleryView, self).get_context_data()
+        context['title'] = 'Gallery 🌼 Fun Flowers'
+        return context

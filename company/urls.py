@@ -1,6 +1,6 @@
 from django.urls import path
 
-from company.views import about, contact, gallery
+from company.views import AboutView, ContactView, GalleryView
 from django.conf.urls.static import static
 
 from django.conf import settings
@@ -8,9 +8,9 @@ from django.conf import settings
 app_name = 'company'
 
 urlpatterns = [
-    path('about/', about, name='about'),
-    path('contact/', contact, name='contact'),
-    path('gallery/', gallery, name='gallery'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('contact/', ContactView.as_view(), name='contact'),
+    path('gallery/', GalleryView.as_view(), name='gallery'),
 ]
 
 if settings.DEBUG:
