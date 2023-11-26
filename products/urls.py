@@ -2,8 +2,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 
-from products.views import (ProductsListView, add_item_to_cart, cart, checkout,
-                            ProductDetailsView, remove_item_from_cart)
+from products.views import (ProductDetailsView, ProductsListView,
+                            add_item_to_cart, cart, checkout,
+                            remove_item_from_cart)
 
 app_name = 'products'
 

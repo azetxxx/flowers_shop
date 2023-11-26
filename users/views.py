@@ -1,10 +1,12 @@
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
+from users.models import User
 
+from django.views.generic.edit import CreateView
 
 def login(request):
     if request.method == 'POST':
@@ -27,21 +29,33 @@ def login(request):
     return render(request, 'users/login.html', context)
 
 
-def registration(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Success! Your signup was successful!')
-            return HttpResponseRedirect(reverse('users:login'))
-    else:
-        form = UserRegistrationForm
+class UserRegistrationView(CreateView):
+    model = User
+    form_class = UserRegistrationForm
+    template_name = 'users/registration.html'
+    success_url = reverse_lazy('users:login')
 
-    context = {
-        'title': 'Sign Up 🌼 Fun Flowers',
-        'form': form
-    }
-    return render(request, 'users/registration.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(UserRegistrationView, self).get_context_data()
+        context["title"] = "Sign Up 🌼 Fun Flowers"
+        return context
+
+
+# def registration(request):
+#     if request.method == 'POST':
+#         form = UserRegistrationForm(data=request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Success! Your signup was successful!')
+#             return HttpResponseRedirect(reverse('users:login'))
+#     else:
+#         form = UserRegistrationForm
+
+#     context = {
+#         'title': 'Sign Up 🌼 Fun Flowers',
+#         'form': form
+#     }
+#     return render(request, 'users/registration.html', context)
 
 
 @login_required
