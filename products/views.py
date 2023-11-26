@@ -1,17 +1,19 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic.base import TemplateView
+
 from products.models import ProductCategory, Product, ShoppingCart
 from django.core.paginator import Paginator
 
-# Create your views here.
 
+class IndexView(TemplateView):
+    template_name = 'products/index.html'
 
-def index(request):
-    context = {
-        'title': 'Start 🌼 Fun Flowers',
-    }
-    return render(request, 'products/index.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Home 🌼 Fun Flowers"
+        return context
 
 
 def shop(request, category_id=None, page_number=1):
@@ -87,12 +89,3 @@ def checkout(request):
         'shopping_cart': shopping_cart,
     }
     return render(request, 'products/checkout.html', context)
-
-
-# def get_discount(request, code):
-#     discounts = Discount.objects.all()
-#     for discount in discounts:
-#         if code in discount.code:
-#             return discount
-#         else:
-#             return None
