@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from products.views import (ProductsListView, add_item_to_cart, cart, checkout,
-                            details, remove_item_from_cart)
+                            ProductDetailsView, remove_item_from_cart)
 
 app_name = 'products'
 
@@ -13,7 +13,7 @@ urlpatterns = [
     path('category/<int:category_id>/', ProductsListView.as_view(), name='category'),
     path('page/<int:page>/', ProductsListView.as_view(), name='paginator'),
     path('cart/', cart, name='cart'),
-    path('details/', details, name='details'),
+    path('<int:product_id>/details/', ProductDetailsView.as_view(), name='details'),
     path('cart/checkout/', checkout, name='checkout'),
     path('cart/add/<int:product_id>/', add_item_to_cart, name='add-item-to-cart'),
     path('cart/remove/<int:product_id>/', remove_item_from_cart, name='remove_item_from_cart'),

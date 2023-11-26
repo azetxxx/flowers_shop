@@ -33,11 +33,25 @@ class ProductsListView(ListView):
         return context
 
 
-def details(request):
-    context = {
-        'title': 'Details: 🌼 Fun Flowers',
-    }
-    return render(request, 'products/details.html', context)
+class ProductDetailsView(TemplateView):
+    template_name = 'products/details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetailsView, self).get_context_data(**kwargs)
+        context['title'] = 'Details: 🌼 Fun Flowers'
+        product_id = self.kwargs.get('product_id')
+        # item = Product.objects.get(id=product_id)
+        # context['item_name'] = item.name
+        # context['item_description'] = item.description
+        context['item'] = Product.objects.get(id=product_id)
+        return context
+
+
+# def details(request):
+#     context = {
+#         'title': 'Details: 🌼 Fun Flowers',
+#     }
+#     return render(request, 'products/details.html', context)
 
 
 @login_required
