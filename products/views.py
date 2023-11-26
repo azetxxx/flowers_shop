@@ -35,7 +35,7 @@ class ProductsListView(ListView):
 
 def details(request):
     context = {
-        'title': 'Shop: 🌼 Fun Flowers',
+        'title': 'Details: 🌼 Fun Flowers',
     }
     return render(request, 'products/details.html', context)
 
