@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-from products.models import ProductCategory, Product, Color, Flower, Holiday, Season, ShoppingCart, Discount
+from products.models import ProductCategory, Product, ShoppingCart
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -26,10 +26,6 @@ def shop(request, category_id=None, page_number=1):
         'title': 'Shop: 🌼 Fun Flowers',
         'categories': ProductCategory.objects.all(),
         'products': products_on_page,
-        'colors': Color.objects.all(),
-        'flowers': Flower.objects.all(),
-        'holidays': Holiday.objects.all(),
-        'seasons': Season.objects.all(),
     }
     return render(request, 'products/shop.html', context)
 
@@ -93,11 +89,10 @@ def checkout(request):
     return render(request, 'products/checkout.html', context)
 
 
-def get_discount(request, code):
-    discounts = Discount.objects.all()
-    for discount in discounts:
-        if code in discount.code:
-            return discount
-        else:
-            return None
-
+# def get_discount(request, code):
+#     discounts = Discount.objects.all()
+#     for discount in discounts:
+#         if code in discount.code:
+#             return discount
+#         else:
+#             return None

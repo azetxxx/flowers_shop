@@ -1,0 +1,158 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Eternal Love Rose Bouquet",
+      "description": "A stunning arrangement of velvety red and delicate pink roses, symbolizing eternal love and passion. This bouquet is perfect for expressing deep emotions and romantic sentiments.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/roses.jpg",
+      "price": "80.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Sunset Tulip Medley",
+      "description": "A vibrant burst of tulips in warm sunset hues, ranging from deep orange and golden yellow to soft pink. This bouquet captures the essence of a picturesque sunset, radiating energy and optimism.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/tulips.jpg",
+      "price": "70.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Lily Serenity Bouquet",
+      "description": "An elegant assortment of pure white lilies, exuding serenity and grace. This bouquet invokes a sense of calm and purity, making it an ideal choice for weddings and peaceful occasions.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/lilys.jpg",
+      "price": "80.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "Radiant Sunflower Harmony",
+      "description": "A cheerful arrangement featuring bright sunflowers, symbolizing adoration and loyalty. Accented with lush greenery, this bouquet radiates warmth and happiness, bringing a touch of sunshine to any setting.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/sunflower.jpg",
+      "price": "75.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Daisy Dreams Blossom",
+      "description": "A playful bouquet adorned with cheerful daisies in various colors, evoking feelings of innocence and joy. This whimsical arrangement is perfect for celebrations and moments of pure delight.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/daisy.jpg",
+      "price": "60.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "name": "Orchid Elegance Ensemble",
+      "description": "An exotic display of orchids in shades of purple, pink, and white, exuding elegance and sophistication. This bouquet showcases the beauty of orchids, making it a luxurious and stylish choice for special events.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/orchids.jpg",
+      "price": "100.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "name": "Carnation Carnival Bliss",
+      "description": "A vibrant medley of carnations in bold and lively colors, representing love and fascination. This lively bouquet captures the spirit of a carnival, adding a playful and colorful touch to any occasion.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/carnation.jpg",
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "name": "Chrysanthemum Jubilee Delight",
+      "description": "A festive arrangement featuring chrysanthemums in rich autumn hues, symbolizing joy and celebration. With its warm colors and cheerful vibe, this bouquet is perfect for festive gatherings and harvest-themed events.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/chrysanthemum.jpg",
+      "price": "65.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "name": "Hydrangea Whispers Bouquet",
+      "description": "A dreamy bouquet showcasing delicate hydrangea blooms in shades of blue, pink, and lavender. This bouquet whispers of romance and enchantment, making it an enchanting choice for weddings and romantic gestures.",
+      "category": 1,
+      "is_available": true,
+      "image": "products_images/hydrangea.jpg",
+      "price": "90.00"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "name": "Decadent Delights Chocolate Box",
+      "description": "Indulge in a luxurious assortment of handcrafted chocolates, elegantly presented in our Decadent Delights Chocolate Box. From velvety truffles to crunchy pralines, this collection is a symphony of flavors that will delight any chocolate connoisseur.",
+      "category": 3,
+      "is_available": true,
+      "image": "products_images/chocolate_DhSwWbz.jpg",
+      "price": "29.99"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "name": "Sweetheart Symphony Chocolate Hearts",
+      "description": "Share the love with our Sweetheart Symphony Chocolate Hearts. These exquisite heart-shaped chocolates are a perfect expression of affection. Crafted with the finest ingredients, each bite is a sweet melody that will leave your taste buds dancing with joy.",
+      "category": 3,
+      "is_available": true,
+      "image": "products_images/chocolate_hearts_qErOrtt.jpg",
+      "price": "14.99"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "name": "Easter Enchantment Chocolate Eggs",
+      "description": "Experience the magic of Easter with our Easter Enchantment Chocolate Eggs. These beautifully decorated chocolate eggs hide a treasure trove of flavors within. From smooth caramel to rich nougat, each egg is a delightful surprise that captures the spirit of the season.",
+      "category": 3,
+      "is_available": true,
+      "image": "products_images/chocolate_eggs_mTrexSh.jpg",
+      "price": "19.99"
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+      "name": "Bunny Bliss Chocolate Easter Bunny",
+      "description": "Hop into the festivities with our Bunny Bliss Chocolate Easter Bunny. This adorable chocolate bunny is a treat for both the eyes and the palate. Made with premium cocoa, it's a whimsical and delicious way to celebrate the joy of Easter.",
+      "category": 3,
+      "is_available": true,
+      "image": "products_images/chocolate_bunny_pZ4sKNn.jpg",
+      "price": "12.99"
+    }
+  }
+]
