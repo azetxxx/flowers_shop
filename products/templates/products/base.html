@@ -56,7 +56,7 @@
                     </div>
                     <div class="our-link">
                         <ul>
-                            <li><a href="{% url 'users:account' %}"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
                             <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
                             <li><a href=" {% url 'company:contact' %} "><i class="fas fa-headset"></i> Contact Us</a></li>
                         </ul>
@@ -121,9 +121,10 @@
                                 {% if user.is_authenticated %}
                                     {% if user.is_superuser or user.is_staff %}
                                     <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
+                                    <li><a href="#">---</a></li>
                                     {% endif %}
-                                    <li><a href="{% url 'users:account' %}">User Account</a></li>
-                                    <li><a href="{% url 'products:cart' %}">Your Cart</a></li>
+                                    <li><a href="{% url 'users:profile' user.id %}">Your Profile ({{ user.username }})</a></li>
+                                    <li><a href="{% url 'products:cart' %}">Shopping Cart</a></li>
                                     <li><a href="{% url 'users:wishlist' %}">Wishlist</a></li>
                                     <li><a href="{% url 'users:logout' %}">Logout</a></li>
                                 {% else %}
@@ -363,7 +364,7 @@
                                     <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+49-89-88705770">+49-89-88705770</a></p>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+49302270">+49 (0)30 227 0</a></p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-envelope"></i>Email: <a href="mailto:hello@fun-flowers.com">hello@fun-flowers.com</a></p>

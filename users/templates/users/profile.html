@@ -10,10 +10,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>My Account</h2>
+                    <h2>Your Profile</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{% url 'products:index' %}">Shop</a></li>
-                        <li class="breadcrumb-item active">My Account</li>
+                        <li class="breadcrumb-item active">Profile</li>
                     </ul>
                 </div>
             </div>
@@ -30,20 +30,7 @@
                         <div class="account-box">
                             <div class="service-box">
                                 <div class="service-icon">
-                                    <a href="#"> <i class="fa fa-gift"></i> </a>
-                                </div>
-                                <div class="service-desc">
-                                    <h4>Your Orders</h4>
-                                    <p>Track, return, or buy things again</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="account-box">
-                            <div class="service-box">
-                                <div class="service-icon">
-                                    <a href="{% url 'users:login-settings' %}"><i class="fa fa-lock"></i> </a>
+                                    <a href="{% url 'users:login-settings' user.id %}"><i class="fa fa-lock"></i> </a>
                                 </div>
                                 <div class="service-desc">
                                     <h4>Login &amp; security</h4>
@@ -77,6 +64,19 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                      <div class="account-box">
+                          <div class="service-box">
+                              <div class="service-icon">
+                                  <a href="{% url 'users:order-history' user.id %}"> <i class="fa fa-gift"></i> </a>
+                              </div>
+                              <div class="service-desc">
+                                  <h4>Your Orders</h4>
+                                  <p>Track, return, or buy things again</p>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="account-box">
