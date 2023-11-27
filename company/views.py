@@ -1,28 +1,17 @@
 from django.views.generic.base import TemplateView
+from common.views import CommonContextMixin
 
 
-class AboutView(TemplateView):
+class AboutView(CommonContextMixin, TemplateView):
     template_name = 'company/about.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(AboutView, self).get_context_data()
-        context['title'] = 'About 🌼 Fun Flowers'
-        return context
+    title = 'About 🌼 Fun Flowers'
 
 
-class ContactView(TemplateView):
+class ContactView(CommonContextMixin, TemplateView):
     template_name = 'company/contact.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(ContactView, self).get_context_data()
-        context['title'] = 'Contact 🌼 Fun Flowers'
-        return context
+    title = 'Contact 🌼 Fun Flowers'
 
 
-class GalleryView(TemplateView):
+class GalleryView(CommonContextMixin, TemplateView):
     template_name = 'company/gallery.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(GalleryView, self).get_context_data()
-        context['title'] = 'Gallery 🌼 Fun Flowers'
-        return context
+    title = 'Gallery 🌼 Fun Flowers'

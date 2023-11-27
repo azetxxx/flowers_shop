@@ -2,22 +2,20 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
+from common.views import CommonContextMixin
 
 from products.models import Product, ProductCategory, ShoppingCart
 
 
-class IndexView(TemplateView):
+class IndexView(CommonContextMixin, TemplateView):
     template_name = 'products/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data()
-        context["title"] = "Home 🌼 Fun Flowers"
-        return context
+    title = 'Home 🌼 Fun Flowers'
 
 
-class ProductsListView(ListView):
+class ProductsListView(CommonContextMixin, ListView):
     model = Product
     template_name = 'products/shop.html'
+    title = 'Shop 🌼 Fun Flowers'
     paginate_by = 6
 
     def get_queryset(self, **kwargs):
@@ -27,31 +25,20 @@ class ProductsListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductsListView, self).get_context_data(**kwargs)
-        context['title'] = 'Shop: 🌼 Fun Flowers'
         context['categories'] = ProductCategory.objects.all()
         context['current_category_id'] = self.kwargs.get('category_id')
         return context
 
 
-class ProductDetailsView(TemplateView):
+class ProductDetailsView(CommonContextMixin, TemplateView):
     template_name = 'products/details.html'
+    title = 'Details: 🌼 Fun Flowers'
 
     def get_context_data(self, **kwargs):
         context = super(ProductDetailsView, self).get_context_data(**kwargs)
-        context['title'] = 'Details: 🌼 Fun Flowers'
         product_id = self.kwargs.get('product_id')
-        # item = Product.objects.get(id=product_id)
-        # context['item_name'] = item.name
-        # context['item_description'] = item.description
         context['item'] = Product.objects.get(id=product_id)
         return context
-
-
-# def details(request):
-#     context = {
-#         'title': 'Details: 🌼 Fun Flowers',
-#     }
-#     return render(request, 'products/details.html', context)
 
 
 @login_required
