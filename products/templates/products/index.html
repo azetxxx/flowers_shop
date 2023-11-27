@@ -29,7 +29,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br> Fun Flowers</strong></h1>
                             <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="{% url 'products:index' %}">Shop Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -60,20 +60,20 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/categories_img_01.jpg' %}" alt="" />
-                        <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                        <img class="img-fluid" src="{% static 'images/cat-flowers.jpg' %}" alt="" />
+                        <a class="btn hvr-hover" href="/products/category/1/">Bouquets</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/categories_img_02.jpg' %}" alt="" />
-                        <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                        <img class="img-fluid" src="{% static 'images/cat-chocolate.jpg' %}" alt="" />
+                        <a class="btn hvr-hover" href="/products/category/3/">Chocolate</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/categories_img_03.jpg' %}" alt="" />
-                        <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                        <img class="img-fluid" src="{% static 'images/cat-drinks.jpg' %}" alt="" />
+                        <a class="btn hvr-hover" href="/products/category/4/">Beverage</a>
                     </div>
                 </div>
             </div>
