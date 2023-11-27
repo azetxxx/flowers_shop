@@ -115,24 +115,27 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'products:index' %}">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'company:gallery' %}">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {% url 'company:contact' %} ">Contact Us</a></li>
+                        {% if user.is_authenticated %}
                         <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Profile</a>
-                            <ul class="dropdown-menu">
-                                {% if user.is_authenticated %}
-                                    {% if user.is_superuser or user.is_staff %}
-                                    <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
-                                    <li><a href="#">---</a></li>
-                                    {% endif %}
-                                    <li><a href="{% url 'users:profile' user.id %}">Your Profile ({{ user.username }})</a></li>
-                                    <li><a href="{% url 'products:cart' %}">Shopping Cart</a></li>
-                                    <li><a href="{% url 'users:wishlist' %}">Wishlist</a></li>
-                                    <li><a href="{% url 'users:logout' %}">Logout</a></li>
-                                {% else %}
-                                    <li><a href="{% url 'users:registration' %}">Register</a></li>
-                                    <li><a href="{% url 'users:login' %}">Login</a></li>
-                                {% endif %}
-                            </ul>
+                          <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Profile</a>
+                          <ul class="dropdown-menu">
+                            {% if user.is_superuser or user.is_staff %}
+                            <li><a href="{% url 'admin:index' %}">Admin Panel</a></li>
+                            <li><a href="#">---</a></li>
+                            {% endif %}
+                            <li><a href="{% url 'users:profile' user.id %}">Your Profile ({{ user.username }})</a></li>
+                            <li><a href="{% url 'products:cart' %}">Shopping Cart</a></li>
+                            <li><a href="{% url 'users:wishlist' %}">Wishlist</a></li>
+                            <li><a href="{% url 'users:logout' %}">Logout</a></li>
                         </li>
+                        {% else %}
+                        <li class="dropdown">
+                          <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Sign Up</a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'users:registration' %}">Register</a></li>
+                            <li><a href="{% url 'users:login' %}">Login</a></li>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
