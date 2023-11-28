@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from common.views import CommonContextMixin
+from django.core.mail import send_mail
 
 from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
 from users.models import User
@@ -47,6 +48,10 @@ class UserLoginSettingsView(CommonContextMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('users:login-settings', args=(self.object.id,))
+
+
+class EmailVerificationView(CommonContextMixin, TemplateView):
+    pass
 
 
 @login_required
