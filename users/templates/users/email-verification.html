@@ -1,0 +1,61 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="css/custom.css">
+{% endblock %}
+
+{% block title_box %}
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Verification</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'users:registration' %}">Registration</a></li>
+                        <li class="breadcrumb-item active"> Verification </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="contact-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <div class="contact-form-right">
+                        <h2>Email Verified</h2>
+                        <p>Your Account is Successfully Activated!</p>
+                        <div class="col-md-12">
+                          <div class="submit-button text-center">
+                              <a href="{% url 'users:login' %}" class="btn hvr-hover" id="submit">Login Now!</a>
+                              <div id="msgSubmit" class="h3 text-center hidden"></div>
+                              <div class="clearfix"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="col-lg-4 col-sm-12">
+                    <div class="contact-info-left">
+                        <h2>CONTACT INFO</h2>
+                        <p>Need assistance or have a query? Reach out to us! Our customer support team is here to help. Feel free to contact us via email or just call us. </p>
+                        <ul>
+                            <li>
+                                <p><i class="fas fa-envelope"></i>Email: <a href="mailto:mail@bundestag.de">mail@bundestag.de</a></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+49302270">+49 (0)30 227 0</a></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-map-marker-alt"></i>Address: Deutscher Bundestag <br>Platz der Republik 1,<br> 11011 Berlin </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
