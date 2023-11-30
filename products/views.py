@@ -4,7 +4,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from common.views import CommonContextMixin
 
-from products.models import Product, ProductCategory, ShoppingCart
+from products.models import User, Product, ProductCategory, ShoppingCart
 
 
 class IndexView(CommonContextMixin, TemplateView):
@@ -41,17 +41,18 @@ class ProductDetailsView(CommonContextMixin, TemplateView):
         return context
 
 
-class CartListView(CommonContextMixin, ListView):
+class CartListView(CommonContextMixin, TemplateView):
     template_name = 'products/cart.html'
     title = 'Cart 🌼 Fun Flowers'
 
-    def get_context_data(self, **kwargs):
-        context = super(CartListView, self).get_context_data()
-        context["shopping_cart"] = ShoppingCart.objects.filter(user=self.request.user)
-        return context
 
-    def get_queryset(self):
-        return ShoppingCart.objects.filter(user=self.request.user)
+    # def get_context_data(self, **kwargs):
+    #     context = super(CartListView, self).get_context_data()
+    #     context["shopping_cart"] = ShoppingCart.objects.filter(user=self.request.user)
+    #     return context
+
+    # def get_queryset(self):
+    #     return ShoppingCart.objects.filter(user=self.request.user)
 
 
 
