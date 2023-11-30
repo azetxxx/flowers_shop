@@ -41,16 +41,31 @@ class ProductDetailsView(CommonContextMixin, TemplateView):
         return context
 
 
-@login_required
-def cart(request):
-    cart_subtotal = None
-    cart_total = None
-    context = {
-        'title': 'Cart 🌼 Fun Flowers',
-        'shopping_cart': ShoppingCart.objects.filter(user=request.user)
-    }
+class CartListView(CommonContextMixin, ListView):
+    template_name = 'products/cart.html'
+    title = 'Cart 🌼 Fun Flowers'
 
-    return render(request, 'products/cart.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(CartListView, self).get_context_data()
+        context["shopping_cart"] = ShoppingCart.objects.filter(user=self.request.user)
+        return context
+
+    def get_queryset(self):
+        return ShoppingCart.objects.filter(user=self.request.user)
+
+
+
+
+# @login_required
+# def cart(request):
+#     cart_subtotal = None
+#     cart_total = None
+#     context = {
+#         'title': 'Cart 🌼 Fun Flowers',
+#         'shopping_cart': ShoppingCart.objects.filter(user=request.user)
+#     }
+
+#     return render(request, 'products/cart.html', context)
 
 
 @login_required
