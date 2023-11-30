@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 
 from products.views import (CartListView, ProductDetailsView, ProductsListView,
-                            add_item_to_cart, checkout, remove_item_from_cart)
+                            add_item_to_cart, remove_item_from_cart)
 
 app_name = 'products'
 
@@ -16,7 +16,6 @@ urlpatterns = [
     path('page/<int:page>/', ProductsListView.as_view(), name='paginator'),
     path('cart/', login_required(CartListView.as_view()), name='cart'),
     path('<int:product_id>/details/', ProductDetailsView.as_view(), name='details'),
-    path('cart/checkout/', checkout, name='checkout'),
     path('cart/add/<int:product_id>/', add_item_to_cart, name='add-item-to-cart'),
     path('cart/remove/<int:product_id>/', remove_item_from_cart, name='remove_item_from_cart'),
 ]

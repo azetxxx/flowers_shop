@@ -82,13 +82,3 @@ def remove_item_from_cart(request, product_id):
         print('❌ Item not found in the cart.')
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
-
-
-def checkout(request):
-    shopping_cart = ShoppingCart.objects.all()
-
-    context = {
-        'title': 'Checkout 🌼 Fun Flowers',
-        'shopping_cart': shopping_cart,
-    }
-    return render(request, 'products/checkout.html', context)
