@@ -1,15 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, HttpResponseRedirect
-from django.urls import reverse_lazy, reverse
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import HttpResponseRedirect, render
+from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
-from django.contrib.messages.views import SuccessMessageMixin
-from common.views import CommonContextMixin
-from django.core.mail import send_mail
 
+from common.views import CommonContextMixin
 from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
-from users.models import User, EmailVerification
+from users.models import EmailVerification, User
 
 
 class UserLoginView(CommonContextMixin, LoginView):
@@ -24,7 +23,10 @@ class UserRegistrationView(CommonContextMixin, SuccessMessageMixin, CreateView):
     template_name = 'users/registration.html'
     title = 'Sign Up 🌼 Fun Flowers'
     success_url = reverse_lazy('users:login')
-    success_message = 'Fantastic! Check your email and hit that activation link to start your floral adventure 🌼 Fun Flowers'
+    success_message = '\
+        Fantastic! \
+        Check your email and hit that activation link to start your floral adventure \
+        🌼 Fun Flowers'
 
 
 class UserProfileView(CommonContextMixin, TemplateView):
@@ -64,8 +66,6 @@ class EmailVerificationView(CommonContextMixin, TemplateView):
             return super(EmailVerificationView, self).get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('index'))
-
-
 
 
 @login_required

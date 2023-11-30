@@ -1,10 +1,9 @@
-from django.contrib.auth.models import AbstractUser
-from django.db import models
-from django.core.mail import send_mail
-from django.urls import reverse
 from django.conf import settings
+from django.contrib.auth.models import AbstractUser
+from django.core.mail import send_mail
+from django.db import models
+from django.urls import reverse
 from django.utils.timezone import now
-
 
 # Create your models here.
 
@@ -29,15 +28,15 @@ class EmailVerification(models.Model):
         subject = f'Please verify your email address for {self.user.username}'
         message = (
             f"Hello {self.user.username},\n\n"
-            f"Welcome to 🌼 Fun Flowers! We're excited to have you on board. To get started, we need to verify your email "
-            f"address. This is a quick step to ensure the security of your account and to provide you with a seamless "
-            f"experience.\n\n"
+            f"Welcome to 🌼 Fun Flowers! We're excited to have you on board. To get started, "
+            f"we need to verify your email address. This is a quick step to ensure the "
+            f"security of your account and to provide you with a seamless experience.\n\n"
             f"Please click the link below to verify your email address:\n"
             f"{verification_link}\n\n"
-            f"This link will be active for 48 hours. If you did not create an account with us, please ignore this "
-            f"email.\n\n"
-            f"Thank you for joining us at 🌼 Fun Store! If you have any questions or need assistance, feel free to "
-            f"reach out to our support team.\n\n"
+            f"This link will be active for 48 hours. If you did not create an account with "
+            f"us, please ignore this email.\n\n"
+            f"Thank you for joining us at 🌼 Fun Store! If you have any questions or need "
+            f"assistance, feel free to reach out to our support team.\n\n"
             f"Best regards,\n"
             f"Team 🌼 Fun Store "
         )

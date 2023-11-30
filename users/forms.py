@@ -1,18 +1,15 @@
 import uuid
 from datetime import timedelta
-
-
 from typing import Any
+
 from django import forms
 from django.contrib.auth.forms import (AuthenticationForm, UserChangeForm,
                                        UserCreationForm)
-from django.utils.timezone import now
 from django.core.exceptions import ValidationError
-
+from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 
-
-from users.models import User, EmailVerification
+from users.models import EmailVerification, User
 
 
 class UserLoginForm(AuthenticationForm):

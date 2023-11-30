@@ -2,9 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect, render
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
-from common.views import CommonContextMixin
 
-from products.models import User, Product, ProductCategory, ShoppingCart
+from common.views import CommonContextMixin
+from products.models import Product, ProductCategory, ShoppingCart
 
 
 class IndexView(CommonContextMixin, TemplateView):
@@ -46,17 +46,6 @@ class CartListView(CommonContextMixin, TemplateView):
     title = 'Cart 🌼 Fun Flowers'
 
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(CartListView, self).get_context_data()
-    #     context["shopping_cart"] = ShoppingCart.objects.filter(user=self.request.user)
-    #     return context
-
-    # def get_queryset(self):
-    #     return ShoppingCart.objects.filter(user=self.request.user)
-
-
-
-
 # @login_required
 # def cart(request):
 #     cart_subtotal = None
@@ -65,7 +54,6 @@ class CartListView(CommonContextMixin, TemplateView):
 #         'title': 'Cart 🌼 Fun Flowers',
 #         'shopping_cart': ShoppingCart.objects.filter(user=request.user)
 #     }
-
 #     return render(request, 'products/cart.html', context)
 
 
