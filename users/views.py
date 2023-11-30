@@ -24,7 +24,7 @@ class UserRegistrationView(CommonContextMixin, SuccessMessageMixin, CreateView):
     template_name = 'users/registration.html'
     title = 'Sign Up 🌼 Fun Flowers'
     success_url = reverse_lazy('users:login')
-    success_message = 'Congratulations! Your account has been created successfully. 🌼 Fun Flowers'
+    success_message = 'Fantastic! Check your email and hit that activation link to start your floral adventure 🌼 Fun Flowers'
 
 
 class UserProfileView(CommonContextMixin, TemplateView):
