@@ -8,5 +8,6 @@ app_name = 'orders'
 urlpatterns = [
     path('checkout/', CheckoutCreateView.as_view(), name='checkout'),
     path('success/', SuccessTemplateView.as_view(), name='success'),
-    path('cancelled/', CancelledTemplateView.as_view(), name='cancelled')
+    path('cancelled/', CancelledTemplateView.as_view(), name='cancelled'),
+
 ]
