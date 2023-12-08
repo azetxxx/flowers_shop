@@ -27,6 +27,9 @@ class ShoppingCartQuerySet(models.QuerySet):
     def cart_subtotal(self):
         return sum(item.product_total() for item in self)
 
+    def total_quantity(self):
+        return sum(item.quantity for item in self)
+
 
 class ShoppingCart(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)

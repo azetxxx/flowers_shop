@@ -1,15 +1,50 @@
+from http import HTTPStatus
+
+from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.shortcuts import render
 from products.models import ShoppingCart
+from orders.forms import OrderForm
+from django.http import HttpResponseRedirect
 
+import stripe
 from common.views import CommonContextMixin
+from django.conf import settings
 
 
-class CheckoutView(CommonContextMixin, TemplateView):
+stripe.api_key = 'sk_test_51IUWRPFTrBbkHWRlurWewrD18UU0sSFoKCjHBlOyoOUqF7xGZPehrRLFa1oeJRWQ7wnac6pcn7L4orqog75szEHr008wdBEkYr'
+
+
+class CheckoutCreateView(CommonContextMixin, CreateView):
     template_name = 'orders/checkout.html'
+    form_class = OrderForm
+    success_url = reverse_lazy('orders:checkout')
     title = 'Checkout 🌼 Fun Flowers'
-    # form_class = OrderForm
+
+    def post(self, request, *args, **kwargs):
+        super(CheckoutCreateView, self).post(request, *args, **kwargs)
+
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    'price': 'price_1OL3ziFTrBbkHWRlGbbsSELB',
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:success')),
+            cancel_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:cancelled'))
+        )
+        return HttpResponseRedirect(checkout_session.url, status=HTTPStatus.SEE_OTHER)
+
+
+    def form_valid(self, form):
+        form.instance.ordered_by = self.request.user
+        return super(CheckoutCreateView, self).form_valid(form)
+
+
     # success_url = reverse_lazy('orders:order_create')
     # title = 'Order 🛒 Fun Store'
 
@@ -25,9 +60,7 @@ class CheckoutView(CommonContextMixin, TemplateView):
     #     )
     #     return HttpResponseRedirect(checkout_session.url, status=HTTPStatus.SEE_OTHER)
 
-    # def form_valid(self, form):
-    #     form.instance.initiator = self.request.user
-    #     return super(OrderCreateView, self).form_valid(form)
+
 
 
 # def checkout(request):
@@ -40,7 +73,7 @@ class CheckoutView(CommonContextMixin, TemplateView):
 #     return render(request, 'orders/checkout.html', context)
 
 
-class SuccessView(CommonContextMixin, TemplateView):
+class SuccessTemplateView(CommonContextMixin, TemplateView):
     template_name = 'orders/success.html'
     title = 'Success 🌼 Fun Flowers'
 
@@ -54,3 +87,8 @@ class SuccessView(CommonContextMixin, TemplateView):
     #         return super(EmailVerificationView, self).get(request, *args, **kwargs)
     #     else:
     #         return HttpResponseRedirect(reverse('index'))
+
+
+class CancelledTemplateView(CommonContextMixin, TemplateView):
+    template_name = 'orders/cancelled.html'
+    title = 'Cancelled 🌼 Fun Flowers'

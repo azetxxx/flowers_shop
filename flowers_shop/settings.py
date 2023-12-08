@@ -74,6 +74,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'django.contrib.humanize',
+
     'debug_toolbar',
 
     'products',
@@ -91,6 +93,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 ]
 
 ROOT_URLCONF = 'flowers_shop.urls'
@@ -180,6 +183,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+USE_THOUSAND_SEPARATOR = True
 
 
 # Static files (CSS, JavaScript, Images)
