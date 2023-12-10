@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from orders.models import Order
 
 
@@ -19,4 +20,4 @@ class OrderAdmin(admin.ModelAdmin):
         'status',
         'ordered_by'
         )
-    readonly_fields  = ('id', 'created')
+    readonly_fields = ('id', 'created')

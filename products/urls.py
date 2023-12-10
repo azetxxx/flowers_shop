@@ -1,8 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
 from django.contrib.auth.decorators import login_required
-
+from django.urls import path
 
 from products.views import (CartListView, ProductDetailsView, ProductsListView,
                             add_item_to_cart, remove_item_from_cart)

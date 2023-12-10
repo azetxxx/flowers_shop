@@ -1,4 +1,5 @@
 from django.db import models
+
 from users.models import User
 
 
@@ -17,7 +18,6 @@ class Order(models.Model):
         (DELIVERED, 'Delivered'),
         (REFUNDED, 'Refunded'),
     )
-
 
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
